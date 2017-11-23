@@ -13,9 +13,5 @@ namespace ERL.Controllers
         {
             return View();
         }
-        public string Register()
-        {
-            return "trying register...";
-        }
     }
 }
