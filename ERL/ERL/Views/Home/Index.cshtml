@@ -1,0 +1,21 @@
+﻿@model ERL.Models.User
+@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>User name: @Html.TextBoxFor(x => x.UserName)</p>
+        <p>Password: @Html.TextBoxFor(x => x.Password)</p>
+        <p><input type="button" value="Login"></p>
+    }
+
+</body>
+</html>
+

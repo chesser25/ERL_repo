@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище UsersDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployedFrom" Type="datetime" />
+          <Property Name="EmployedTo" Type="datetime" />
+          <Property Name="LeaveReason" Type="nvarchar" MaxLength="255" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="255" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="255" />
+          <Property Name="ZIP" Type="nvarchar" MaxLength="255" />
+          <Property Name="Place" Type="nvarchar" MaxLength="255" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="int" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Хранилище UsersDBModelContainer">
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UsersDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployedFrom" Type="DateTime" Precision="3" />
+          <Property Name="EmployedTo" Type="DateTime" Precision="3" />
+          <Property Name="LeaveReason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ZIP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Place" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="UsersDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище UsersDBModelContainer" CdmEntityContainer="UsersDBEntities1">
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="UsersDBModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="EmployedFrom" ColumnName="EmployedFrom" />
+                <ScalarProperty Name="EmployedTo" ColumnName="EmployedTo" />
+                <ScalarProperty Name="LeaveReason" ColumnName="LeaveReason" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="UsersDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
