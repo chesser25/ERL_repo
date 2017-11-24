@@ -1,0 +1,130 @@
+﻿@model ERL.Models.UserInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <<meta name="viewport" content="width=device-width">
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <div class="panel panel-success">
+        <div class="panel-heading text-center">Personal information</div>
+        <div class="panel-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
+
+                    <div class="form-group">
+                        <label>First Name</label>
+                         @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                         @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                     </div>
+
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        @Html.TextBoxFor(model => model.LastName,  new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Birth date</label>
+                        @Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                            <div class="checkbox">
+                            @Html.EditorFor(model => model.Gender)
+                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Position</label>
+                         @Html.TextBoxFor(model => model.Position, new { @class = "form-control" })
+                         @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Department</label>
+                            @Html.TextBoxFor(model => model.Department, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Employed from</label>
+                        @Html.EditorFor(model => model.EmployedFrom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EmployedFrom, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Employed To</label>
+                        @Html.EditorFor(model => model.EmployedTo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EmployedTo, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Leave reason</label>
+                        @Html.TextBoxFor(model => model.LeaveReason, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LeaveReason, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                       <label>Address Line 1</label>
+                            @Html.TextBoxFor(model => model.AddressLine1, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.AddressLine1, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address Line 2</label>
+                        @Html.TextBoxFor(model => model.AddressLine2, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.AddressLine2, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>ZIP</label>
+                        @Html.TextBoxFor(model => model.ZIP, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ZIP, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                       <label>Place</label>
+                        @Html.TextBoxFor(model => model.Place, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Place, "", new { @class = "text-danger" })
+                     </div>
+
+                    <div class="form-group">
+                        <label>Country Code</label>
+                        @Html.TextBoxFor(model => model.CountryCode, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CountryCode, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+            }
+            </div>
+        </div>
+            
+</body>
+</html>
