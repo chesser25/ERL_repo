@@ -24,12 +24,12 @@ namespace ERL.Controllers
             UserInfo userInfo = db.UserInfoes.Find(id);
             if (userInfo == null)
             {
-                return HttpNotFound();
+                return View();
             }
             return View(userInfo);
         }
 
-        // POST: Info/Edit/5
+        // POST: Info/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,CompanyName,BirthDate,Gender,Position,Department,EmployedFrom,EmployedTo,LeaveReason,AddressLine1,AddressLine2,ZIP,Place,CountryCode")] UserInfo userInfo)

@@ -170,6 +170,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -215,6 +216,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Registration\Create.cshtml" />
     <Content Include="Views\Info\Edit.cshtml" />
+    <Content Include="Views\test\Create.cshtml" />
+    <Content Include="Views\test\Delete.cshtml" />
+    <Content Include="Views\test\Details.cshtml" />
+    <Content Include="Views\test\Edit.cshtml" />
+    <Content Include="Views\test\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

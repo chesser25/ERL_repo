@@ -9,6 +9,7 @@ namespace ERL.Controllers
 {
     public class HomeController : Controller
     {
+        private UsersDBEntities1 db = new UsersDBEntities1();
         // GET: Home
         public ActionResult Index()
         {
@@ -20,25 +21,21 @@ namespace ERL.Controllers
         {
             if (ModelState.IsValid)
             {
-                Check(user);
+                if(IsUserExist(user))
+                {
+
+                }
             }
-            return View();
+            return View(user);
         }
 
-        void Check(User _user)
+        bool IsUserExist(User _user)
         {
-            UsersDBEntities1 db = new UsersDBEntities1();
-            User user = db.Users.Find(_user.UserName);
-            if (user == null)
-            {
-                Index();
-            }
-            else
-            {
-                int userId = user.Id;
-                string redirectUri = Url.Action("Edit", "Info", userId);
-                Redirect(redirectUri);
-            }
+            //    User user = db.Users.Find();
+            //    if (user == null)
+            //        return false;
+            //    return true;
+            return false;
         }
     }
 }

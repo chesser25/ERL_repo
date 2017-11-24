@@ -16,7 +16,7 @@ namespace ERL.Models
     public partial class UsersDBEntities1 : DbContext
     {
         public UsersDBEntities1()
-            : base("name=UsersDBEntities1")
+            : base("name=UsersDBEntities")
         {
         }
     

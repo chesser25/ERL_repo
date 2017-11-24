@@ -22,12 +22,12 @@ namespace ERL.Controllers
 
         // POST: Registration/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,UserName,Email,ContactNo,Password,CompanyName")] User user)
         {
             if (ModelState.IsValid)
             {
                 db.Users.Add(user);
+                db.UserInfoes.Add(new UserInfo {Id = user.Id });
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
