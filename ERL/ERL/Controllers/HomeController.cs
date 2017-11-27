@@ -9,7 +9,7 @@ namespace ERL.Controllers
 {
     public class HomeController : Controller
     {
-        private UsersDBEntities1 db = new UsersDBEntities1();
+        private UsersDBEntities db = new UsersDBEntities();
         // GET: Home
         public ActionResult Index()
         {

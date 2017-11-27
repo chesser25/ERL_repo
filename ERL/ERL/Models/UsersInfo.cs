@@ -12,17 +12,17 @@ namespace ERL.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UserInfo
+    public partial class UsersInfo
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CompanyName { get; set; }
         public Nullable<System.DateTime> BirthDate { get; set; }
-        public Nullable<bool> Gender { get; set; }
+        public bool Gender { get; set; }
         public string Position { get; set; }
         public string Department { get; set; }
-        public Nullable<System.DateTime> EmployedFrom { get; set; }
+        public System.DateTime EmployedFrom { get; set; }
         public Nullable<System.DateTime> EmployedTo { get; set; }
         public string LeaveReason { get; set; }
         public string AddressLine1 { get; set; }
@@ -30,5 +30,8 @@ namespace ERL.Models
         public string ZIP { get; set; }
         public string Place { get; set; }
         public string CountryCode { get; set; }
+        public int UserId { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }

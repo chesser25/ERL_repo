@@ -7,13 +7,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ERL.Models;
+using ERL.Mail;
 
 namespace ERL.Controllers
 {
     public class RegistrationController : Controller
     {
-        private UsersDBEntities1 db = new UsersDBEntities1();
-
+        private UsersDBEntities db = new UsersDBEntities();
+        
         // GET: Registration/Create
         public ActionResult Create()
         {
@@ -27,12 +28,12 @@ namespace ERL.Controllers
             if (ModelState.IsValid)
             {
                 db.Users.Add(user);
-                db.UserInfoes.Add(new UserInfo {Id = user.Id });
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                MailHelper.GetMailHelper.Setup();
+                return Redirect("Home/Index");
             }
-
             return View(user);
+            
         }
 
     }

@@ -13,9 +13,9 @@ namespace ERL.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class UsersDBEntities1 : DbContext
+    public partial class UsersDBEntities : DbContext
     {
-        public UsersDBEntities1()
+        public UsersDBEntities()
             : base("name=UsersDBEntities")
         {
         }
@@ -25,7 +25,7 @@ namespace ERL.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<UserInfo> UserInfoes { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UsersInfo> UsersInfoes { get; set; }
     }
 }
